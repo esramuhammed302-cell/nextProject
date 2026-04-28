@@ -1,40 +1,75 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/aboutUs", label: "About Us" },
+  { href: "/contactUs", label: "Contact" },
+  { href: "/books", label: "Books" },
+  { href: "/login", label: "Login" },
+];
 
 const Navbar = () => {
-  const links = [
-    { href: "/", label: "Home" },
-    { href: "/aboutUs", label: "About Us" },
-    { href: "/contactUs", label: "Contact" },
-    { href: "/books", label: "Books" },
-    { href: "/login", label: "Login" },
-  ];
+  const pathname = usePathname();
 
   return (
-    <nav className="bg-white dark:bg-gray-800 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          
-          <div className="flex items-center">
-            <Link
-              href="/"
-              className="text-xl font-bold text-gray-900 dark:text-white"
-            >
-              My App
-            </Link>
-          </div>
+    <nav
+      style={{
+        background: "var(--warm-white)",
+        borderBottom: "0.5px solid var(--border)",
+        fontFamily: "'DM Sans', sans-serif",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "0 2rem",
+          height: "68px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        {/* Logo */}
+        <Link
+          href="/"
+          style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: "22px",
+            fontWeight: 600,
+            color: "var(--deep-brown)",
+            textDecoration: "none",
+          }}
+        >
+          My<span style={{ color: "var(--caramel)" }}>App</span>
+        </Link>
 
-          <div className="flex items-center space-x-4">
-            {links.map((link) => (
+        {/* Links */}
+        <div style={{ display: "flex", gap: "4px", alignItems: "center" }}>
+          {links.map((link) => {
+            const isActive = pathname === link.href;
+            return (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                style={{
+                  padding: "8px 16px",
+                  borderRadius: "8px",
+                  fontSize: "14px",
+                  fontWeight: isActive ? 500 : 400,
+                  color: isActive ? "#fff" : "var(--mid-brown)",
+                  background: isActive ? "var(--deep-brown)" : "transparent",
+                  textDecoration: "none",
+                  transition: "all 0.2s",
+                }}
               >
                 {link.label}
               </Link>
-            ))}
-          </div>
-
+            );
+          })}
         </div>
       </div>
     </nav>
