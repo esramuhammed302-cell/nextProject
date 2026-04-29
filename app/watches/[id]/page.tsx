@@ -25,13 +25,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const watches = await getWatches();
-  return watches.map((w) => ({
-    id: `${w.id}-${w.name
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9-]/g, "")}`,
-  }));
+  try {
+    const watches = await getWatches();
+    return watches.map((w) => ({
+      id: `${w.id}-${w.name
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^a-z0-9-]/g, "")}`,
+    }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function WatchDetailPage({ params }: Props) {
