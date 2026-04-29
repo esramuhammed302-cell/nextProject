@@ -1,4 +1,30 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Sign in to your MyApp account.",
+};
+
+const labelStyle = {
+  display: "block",
+  fontSize: "12px",
+  fontWeight: 500,
+  color: "var(--text-muted)",
+  marginBottom: "6px",
+} as React.CSSProperties;
+const inputStyle = {
+  width: "100%",
+  padding: "11px 14px",
+  border: "0.5px solid var(--border)",
+  borderRadius: "10px",
+  fontSize: "14px",
+  fontFamily: "inherit",
+  color: "var(--text-main)",
+  background: "var(--cream)",
+  outline: "none",
+  display: "block",
+} as React.CSSProperties;
 
 export default function Login() {
   return (
@@ -21,10 +47,9 @@ export default function Login() {
           maxWidth: "420px",
         }}
       >
-        {/* Logo */}
         <div
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Playfair Display',serif",
             fontSize: "22px",
             color: "var(--deep-brown)",
             textAlign: "center",
@@ -33,10 +58,9 @@ export default function Login() {
         >
           My<span style={{ color: "var(--caramel)" }}>App</span>
         </div>
-
         <h1
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Playfair Display',serif",
             fontSize: "28px",
             color: "var(--deep-brown)",
             marginBottom: "6px",
@@ -44,26 +68,39 @@ export default function Login() {
         >
           Welcome back
         </h1>
-        <p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "2rem" }}>
+        <p
+          style={{
+            fontSize: "14px",
+            color: "var(--text-muted)",
+            marginBottom: "2rem",
+          }}
+        >
           Sign in to your account to continue
         </p>
-
-        {/* Email */}
         <div style={{ marginBottom: "1rem" }}>
           <label style={labelStyle}>Email address</label>
           <input style={inputStyle} type="email" placeholder="you@email.com" />
         </div>
-
-        {/* Password */}
         <div style={{ marginBottom: "1.5rem" }}>
           <label style={labelStyle}>Password</label>
           <input style={inputStyle} type="password" placeholder="••••••••" />
         </div>
-
-        {/* Sign in button */}
-        <button style={primaryBtn}>Sign In</button>
-
-        {/* Divider */}
+        <button
+          style={{
+            width: "100%",
+            padding: "13px",
+            background: "var(--deep-brown)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "10px",
+            fontSize: "14px",
+            fontWeight: 500,
+            cursor: "pointer",
+            fontFamily: "inherit",
+          }}
+        >
+          Sign In
+        </button>
         <div
           style={{
             display: "flex",
@@ -74,12 +111,14 @@ export default function Login() {
             color: "var(--text-muted)",
           }}
         >
-          <div style={{ flex: 1, height: "0.5px", background: "var(--border)" }} />
+          <div
+            style={{ flex: 1, height: "0.5px", background: "var(--border)" }}
+          />
           or
-          <div style={{ flex: 1, height: "0.5px", background: "var(--border)" }} />
+          <div
+            style={{ flex: 1, height: "0.5px", background: "var(--border)" }}
+          />
         </div>
-
-        {/* Google */}
         <button
           style={{
             width: "100%",
@@ -90,7 +129,7 @@ export default function Login() {
             fontSize: "14px",
             color: "var(--text-main)",
             cursor: "pointer",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "inherit",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -100,11 +139,18 @@ export default function Login() {
         >
           <span style={{ fontWeight: 700 }}>G</span> Continue with Google
         </button>
-
-        {/* Footer */}
-        <p style={{ textAlign: "center", fontSize: "13px", color: "var(--text-muted)" }}>
-          Don&apos;t have an account?{" "}
-          <Link href="#" style={{ color: "var(--caramel)", textDecoration: "none" }}>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "13px",
+            color: "var(--text-muted)",
+          }}
+        >
+          {"Don't have an account?"}{" "}
+          <Link
+            href="#"
+            style={{ color: "var(--caramel)", textDecoration: "none" }}
+          >
             Sign up
           </Link>
         </p>
@@ -112,38 +158,3 @@ export default function Login() {
     </main>
   );
 }
-
-const labelStyle: React.CSSProperties = {
-  display: "block",
-  fontSize: "12px",
-  fontWeight: 500,
-  color: "var(--text-muted)",
-  marginBottom: "6px",
-  letterSpacing: "0.3px",
-};
-
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  padding: "11px 14px",
-  border: "0.5px solid var(--border)",
-  borderRadius: "10px",
-  fontSize: "14px",
-  fontFamily: "'DM Sans', sans-serif",
-  color: "var(--text-main)",
-  background: "var(--cream)",
-  outline: "none",
-  display: "block",
-};
-
-const primaryBtn: React.CSSProperties = {
-  width: "100%",
-  padding: "13px",
-  background: "var(--deep-brown)",
-  color: "#fff",
-  border: "none",
-  borderRadius: "10px",
-  fontSize: "14px",
-  fontWeight: 500,
-  cursor: "pointer",
-  fontFamily: "'DM Sans', sans-serif",
-};

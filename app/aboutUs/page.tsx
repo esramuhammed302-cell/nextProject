@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn about MyApp and our mission.",
+};
+
 export default function AboutUs() {
   return (
-    <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "3rem 2rem" }}>
-      {/* Main grid */}
+    <main
+      style={{ maxWidth: "1200px", margin: "0 auto", padding: "3rem 2rem" }}
+    >
       <div
         style={{
           display: "grid",
@@ -10,7 +18,6 @@ export default function AboutUs() {
           marginBottom: "12px",
         }}
       >
-        {/* About text */}
         <div
           style={{
             background: "var(--warm-white)",
@@ -21,7 +28,7 @@ export default function AboutUs() {
         >
           <h1
             style={{
-              fontSize: "clamp(28px, 3vw, 40px)",
+              fontSize: "clamp(28px,3vw,40px)",
               fontWeight: 600,
               color: "var(--deep-brown)",
               lineHeight: 1.2,
@@ -39,12 +46,9 @@ export default function AboutUs() {
           >
             We&apos;re passionate about connecting readers with the books that
             matter. Our platform brings together timeless classics and beloved
-            stories in a simple, beautiful experience. Built with care and
-            designed for everyone who loves to read.
+            stories in a simple, beautiful experience.
           </p>
         </div>
-
-        {/* Stats */}
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           {[
             { num: "2024", label: "Year founded" },
@@ -61,7 +65,7 @@ export default function AboutUs() {
             >
               <div
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "'Playfair Display',serif",
                   fontSize: "40px",
                   fontWeight: 600,
                   color: "var(--deep-brown)",
@@ -69,15 +73,19 @@ export default function AboutUs() {
               >
                 {s.num}
               </div>
-              <div style={{ fontSize: "13px", color: "var(--text-muted)", marginTop: "4px" }}>
+              <div
+                style={{
+                  fontSize: "13px",
+                  color: "var(--text-muted)",
+                  marginTop: "4px",
+                }}
+              >
                 {s.label}
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Team card */}
       <div
         style={{
           background: "var(--warm-white)",
@@ -107,7 +115,13 @@ export default function AboutUs() {
           ES
         </div>
         <div>
-          <div style={{ fontSize: "15px", fontWeight: 500, color: "var(--text-main)" }}>
+          <div
+            style={{
+              fontSize: "15px",
+              fontWeight: 500,
+              color: "var(--text-main)",
+            }}
+          >
             Esra Mohammed
           </div>
           <div style={{ fontSize: "13px", color: "var(--text-muted)" }}>

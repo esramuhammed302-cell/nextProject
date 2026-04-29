@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Welcome to MyApp — discover books and watches curated for you.",
+};
 
 export default function Home() {
   return (
-    <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "3rem 2rem" }}>
+    <main
+      style={{ maxWidth: "1200px", margin: "0 auto", padding: "3rem 2rem" }}
+    >
       {/* Hero */}
       <div
         style={{
@@ -19,7 +27,6 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
-        {/* Decorative circle */}
         <div
           style={{
             position: "absolute",
@@ -32,8 +39,6 @@ export default function Home() {
             opacity: 0.6,
           }}
         />
-
-        {/* Text */}
         <div style={{ position: "relative", zIndex: 1 }}>
           <span
             style={{
@@ -45,21 +50,20 @@ export default function Home() {
               padding: "5px 14px",
               borderRadius: "20px",
               marginBottom: "1.25rem",
-              letterSpacing: "0.5px",
             }}
           >
             Welcome to MyApp
           </span>
           <h1
             style={{
-              fontSize: "clamp(32px, 4vw, 48px)",
+              fontSize: "clamp(32px,4vw,48px)",
               fontWeight: 600,
               color: "var(--deep-brown)",
               lineHeight: 1.15,
               marginBottom: "1rem",
             }}
           >
-            Discover Your Next Favourite Book
+            Discover Books &amp; Watches
           </h1>
           <p
             style={{
@@ -69,8 +73,8 @@ export default function Home() {
               marginBottom: "2rem",
             }}
           >
-            Explore a curated collection of timeless classics and modern
-            favourites — all in one place.
+            A curated collection of timeless classics and elegant timepieces —
+            all in one place.
           </p>
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
             <Link
@@ -88,11 +92,10 @@ export default function Home() {
               Browse Books
             </Link>
             <Link
-              href="/aboutUs"
+              href="/watches"
               style={{
-                background: "transparent",
-                color: "var(--mid-brown)",
-                border: "0.5px solid var(--border)",
+                background: "var(--caramel)",
+                color: "#fff",
                 padding: "12px 28px",
                 borderRadius: "10px",
                 fontSize: "14px",
@@ -100,12 +103,10 @@ export default function Home() {
                 textDecoration: "none",
               }}
             >
-              Learn More
+              Shop Watches ⌚
             </Link>
           </div>
         </div>
-
-        {/* Stats */}
         <div
           style={{
             position: "relative",
@@ -117,7 +118,7 @@ export default function Home() {
         >
           {[
             { icon: "📚", num: "3+", desc: "Books in collection" },
-            { icon: "✨", num: "100%", desc: "Curated selection" },
+            { icon: "⌚", num: "5", desc: "Watches available" },
           ].map((s) => (
             <div
               key={s.desc}
@@ -168,7 +169,7 @@ export default function Home() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: "repeat(3,1fr)",
           gap: "12px",
         }}
       >
@@ -179,9 +180,9 @@ export default function Home() {
             desc: "Timeless titles handpicked for every kind of reader.",
           },
           {
-            icon: "🔍",
-            title: "Easy Navigation",
-            desc: "Find what you're looking for in seconds.",
+            icon: "⌚",
+            title: "Premium Watches",
+            desc: "Elegant timepieces from classic to modern styles.",
           },
           {
             icon: "💬",
@@ -207,12 +208,18 @@ export default function Home() {
                 fontWeight: 500,
                 color: "var(--text-main)",
                 marginBottom: "6px",
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'DM Sans',sans-serif",
               }}
             >
               {f.title}
             </h3>
-            <p style={{ fontSize: "13px", color: "var(--text-muted)", lineHeight: 1.6 }}>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "var(--text-muted)",
+                lineHeight: 1.6,
+              }}
+            >
               {f.desc}
             </p>
           </div>

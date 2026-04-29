@@ -1,13 +1,31 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Books",
+  description: "Browse our curated book collection.",
+};
+
 const books = [
-  { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", color: "var(--caramel)" },
-  { id: 2, title: "To Kill a Mockingbird", author: "Harper Lee", color: "#8B6B52" },
+  {
+    id: 1,
+    title: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    color: "var(--caramel)",
+  },
+  {
+    id: 2,
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    color: "#8B6B52",
+  },
   { id: 3, title: "1984", author: "George Orwell", color: "#5A7A6A" },
 ];
 
 export default function Books() {
   return (
-    <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "3rem 2rem" }}>
-      {/* Header */}
+    <main
+      style={{ maxWidth: "1200px", margin: "0 auto", padding: "3rem 2rem" }}
+    >
       <div
         style={{
           background: "var(--warm-white)",
@@ -41,12 +59,10 @@ export default function Books() {
           {books.length} titles
         </span>
       </div>
-
-      {/* Grid */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))",
           gap: "12px",
         }}
       >
@@ -62,7 +78,6 @@ export default function Books() {
               overflow: "hidden",
             }}
           >
-            {/* Spine accent */}
             <div
               style={{
                 position: "absolute",
@@ -74,7 +89,6 @@ export default function Books() {
                 borderRadius: "14px 0 0 14px",
               }}
             />
-            {/* Number */}
             <div
               style={{
                 position: "absolute",

@@ -8,18 +8,18 @@ const links = [
   { href: "/aboutUs", label: "About Us" },
   { href: "/contactUs", label: "Contact" },
   { href: "/books", label: "Books" },
+  { href: "/watches", label: "Watches" },
   { href: "/login", label: "Login" },
 ];
 
-const Navbar = () => {
+export default function Navbar() {
   const pathname = usePathname();
-
   return (
     <nav
       style={{
         background: "var(--warm-white)",
         borderBottom: "0.5px solid var(--border)",
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "var(--font-dm-sans, 'DM Sans'), sans-serif",
       }}
     >
       <div
@@ -33,11 +33,10 @@ const Navbar = () => {
           justifyContent: "space-between",
         }}
       >
-        {/* Logo */}
         <Link
           href="/"
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "var(--font-playfair, 'Playfair Display'), serif",
             fontSize: "22px",
             fontWeight: 600,
             color: "var(--deep-brown)",
@@ -46,24 +45,23 @@ const Navbar = () => {
         >
           My<span style={{ color: "var(--caramel)" }}>App</span>
         </Link>
-
-        {/* Links */}
-        <div style={{ display: "flex", gap: "4px", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "4px" }}>
           {links.map((link) => {
-            const isActive = pathname === link.href;
+            const active =
+              pathname === link.href ||
+              (link.href !== "/" && pathname.startsWith(link.href));
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 style={{
-                  padding: "8px 16px",
+                  padding: "8px 14px",
                   borderRadius: "8px",
                   fontSize: "14px",
-                  fontWeight: isActive ? 500 : 400,
-                  color: isActive ? "#fff" : "var(--mid-brown)",
-                  background: isActive ? "var(--deep-brown)" : "transparent",
+                  fontWeight: active ? "bolder" : 400,
+                  color: active ? "#fff" : "var(--mid-brown)",
+                  background: active ? "var(--deep-brown)" : "transparent",
                   textDecoration: "none",
-                  transition: "all 0.2s",
                 }}
               >
                 {link.label}
@@ -74,6 +72,4 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
